@@ -33,15 +33,13 @@ package
 			stage.stage3Ds[0].viewPort=new Rectangle(0, 0, 1024, 1024);
 			stage.stage3Ds[0].addEventListener(Event.CONTEXT3D_CREATE, onContextCreation);
 			stage.stage3Ds[0].requestContext3D(Context3DRenderMode.AUTO);
-			
-			addEventListener(Event.ENTER_FRAME, onRender);
 		}
 		
 		public function onContextCreation(event:Event):void
 		{
 			scene=new DisplayContext3D(stage, stage.stage3Ds[0]);
 			
-			for(var i:int = 0; i < 500; i ++)
+			for(var i:int = 0; i < 200; i ++)
 			{
 				var mc:TexturedMovie = new TexturedMovie(schools, 30);
 				mc.play();
@@ -60,6 +58,8 @@ package
 			royalcottage12.x = 32;
 			royalcottage12.y = 144;
 			scene.addChild(royalcottage12);
+			
+			addEventListener(Event.ENTER_FRAME, onRender);
 		}
 		
 		private function onRender(e:Event):void
